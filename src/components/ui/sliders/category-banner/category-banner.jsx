@@ -9,7 +9,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", right: "38px", zIndex: "49" }}
+      style={{ ...style, display: "block", right: "38px" }}
       onClick={onClick}
     />
   );
@@ -32,6 +32,7 @@ function SamplePrevArrow(props) {
 }
 
 const settings = {
+  dots: true,
   infinte: true,
   speed: 500,
   slideToShow: 1,
@@ -73,11 +74,11 @@ export const CategoryBanner = () => {
         {isLoading ? (
           <Skeleton count={6} height={50} />
         ) : (
-          <div className=" flex items-center gap-5">
+          <div className="flex items-center gap-5">
             {data?.map((item, i) => (
               <Link key={i} to={`/category/${item.name}`}>
                 <div className="h-[150px] flex items-center gap-[10px] bg-gray-200 p-3">
-                  <div className="w-[160px]">
+                  <div className="w-[110px]">
                     <img src={item.img} alt="img" />
                   </div>
                   <p>{item.text}</p>
