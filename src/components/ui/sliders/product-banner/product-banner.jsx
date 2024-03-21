@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import { useGetBanner } from "../../service/query/useGetBanner";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -42,14 +41,14 @@ const settings = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 5,
         slidesToScroll: 1,
       },
     },
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 2,
         initialSlide: 2,
       },
@@ -57,24 +56,13 @@ const settings = {
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
       },
     },
   ],
 };
 
-export const Banner = () => {
-  const { data, isLoading } = useGetBanner();
-  return (
-    <div className="my-[20px]">
-      <Slider {...settings}>
-        {data?.map((item) => (
-          <div key={item.id}>
-            <img src={item.img} alt="img" />
-          </div>
-        ))}
-      </Slider>
-    </div>
-  );
+export const ProductBanner = ({ children }) => {
+  return <Slider {...settings}>{children}</Slider>;
 };

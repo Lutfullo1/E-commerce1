@@ -4,6 +4,11 @@ export default {
   theme: {
     extend: {
       container: {
+        screen: {
+          sm: "576px",
+          md: "768px",
+          lg: "992px",
+        },
         center: true,
         padding: "20px",
         screens: {

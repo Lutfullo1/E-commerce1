@@ -1,13 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import { useGetCatalog } from "../../../../layout/header/service/query/useGetCatalog";
 import Slider from "react-slick";
-import { useGetBanner } from "../../service/query/useGetBanner";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", right: "38px" }}
+      style={{ ...style, display: "block", right: "38px", zIndex: "49" }}
       onClick={onClick}
     />
   );
@@ -30,7 +32,6 @@ function SamplePrevArrow(props) {
 }
 
 const settings = {
-  dots: true,
   infinte: true,
   speed: 500,
   slideToShow: 1,
@@ -64,17 +65,28 @@ const settings = {
   ],
 };
 
-export const Banner = () => {
-  const { data, isLoading } = useGetBanner();
+export const CategoryBanner = () => {
+  const { data, isLoading } = useGetCatalog();
   return (
-    <div className="my-[20px]">
-      <Slider {...settings}>
-        {data?.map((item) => (
-          <div key={item.id}>
-            <img src={item.img} alt="img" />
+    <div className="container">
+      <div className="mt-[50px]">
+        {isLoading ? (
+          <Skeleton count={6} height={50} />
+        ) : (
+          <div className=" flex items-center gap-5">
+            {data?.map((item, i) => (
+              <Link key={i} to={`/category/${item.name}`}>
+                <div className="h-[150px] flex items-center gap-[10px] bg-gray-200 p-3">
+                  <div className="w-[160px]">
+                    <img src={item.img} alt="img" />
+                  </div>
+                  <p>{item.text}</p>
+                </div>
+              </Link>
+            ))}
           </div>
-        ))}
-      </Slider>
+        )}
+      </div>
     </div>
   );
 };
