@@ -5,9 +5,13 @@ import { useGetNewProducts } from "./service/query/useGetNewProducts";
 import { ProductBanner } from "../../components/ui/sliders/product-banner/product-banner";
 import { ProductCard } from "../../components/card/product-card/product-card";
 import { Ads } from "../../components/banners/ads/ads";
+import { useGetLaptop } from "./service/query/useGetLaptop";
 
 export const Home = () => {
-  const { data, isLoading } = useGetNewProducts("phones");
+  const { data: phones, isLoading: isLoadingPhones } =
+    useGetNewProducts("phones");
+  const { data: laptop, isLoading: isLoadingLaptop } = useGetLaptop("notebook");
+
   return (
     <div>
       <Banner />
@@ -15,7 +19,7 @@ export const Home = () => {
       <div className="container mt-8">
         <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
         <ProductBanner>
-          {data?.map((item) => (
+          {phones?.map((item) => (
             <ProductCard key={item.id} {...item} />
           ))}
         </ProductBanner>
@@ -26,7 +30,7 @@ export const Home = () => {
         <div>
           <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
           <div className="border-t-2 pt-4">
-            {data?.slice(0, 3).map((item) => (
+            {phones?.slice(0, 3).map((item) => (
               <div key={item.id} className="flex items-center gap-3">
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
@@ -46,7 +50,7 @@ export const Home = () => {
             Ноутбуки, планшеты и компьютеры
           </p>
           <div className="border-t-2 pt-4">
-            {data?.slice(0, 3).map((item) => (
+            {laptop?.slice(0, 3).map((item) => (
               <div key={item.id} className="flex items-center gap-3">
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
@@ -64,7 +68,7 @@ export const Home = () => {
         <div>
           <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
           <div className="border-t-2 pt-4">
-            {data?.slice(0, 3).map((item) => (
+            {phones?.slice(0, 3).map((item) => (
               <div key={item.id} className="flex items-center gap-3">
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
@@ -84,7 +88,7 @@ export const Home = () => {
       <div className="container mt-8">
         <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
         <ProductBanner>
-          {data?.map((item) => (
+          {phones?.map((item) => (
             <ProductCard key={item.id} {...item} />
           ))}
         </ProductBanner>
@@ -94,7 +98,7 @@ export const Home = () => {
           Ноутбуки, планшеты и компьютеры
         </p>
         <ProductBanner>
-          {data?.map((item) => (
+          {laptop?.map((item) => (
             <ProductCard key={item.id} {...item} />
           ))}
         </ProductBanner>

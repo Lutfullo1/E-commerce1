@@ -12,10 +12,16 @@ import Skeleton from "react-loading-skeleton";
 import { UserIcon } from "../../assets/icons/user-icon";
 import { HeartIcon } from "../../assets/icons/heart-icon";
 import { CartIcon } from "../../assets/icons/cart-icon";
+import useDebounce from "../../hooks/useDebounse";
+import { useGetSearch } from "./components/search/service/useGetSearch";
 
 export const Header = () => {
+  const [input, setInput] = React.useState("");
   const { close, isOpen, open } = useModal();
   const { data, isLoading } = useGetCatalog();
+  const value = useDebounce(input);
+  const { data: searchedData, isLoading: isLoadingSearchData } =
+    useGetSearch(value);
   return (
     <div className="container">
       <div className="gap-[24px] py-2 justify-end hidden lg:flex">
@@ -50,9 +56,21 @@ export const Header = () => {
               Каталог
             </Button>
           </div>
-          <Search />
+          <Search input={input} setInput={setInput} />
           <Buttons />
         </div>
+        {isLoadingSearchData ? (
+          <Skeleton height={100} count={6} />
+        ) : (
+          <div className="grid grid-cols-4 gap-4">
+            {searchedData?.map((item) => (
+              <div key={item.id} className="mt-8">
+                <img src={item.img} alt="" />
+                <p>{item.title}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className="lg:hidden">
         <div className="py-[15px] flex justify-between items-center">
