@@ -8,7 +8,6 @@ import { Ads } from "../../components/banners/ads/ads";
 
 export const Home = () => {
   const { data, isLoading } = useGetNewProducts("phones");
-  const { data: data2, isLoading: isLoading2 } = useGetNewProducts("notebook");
   return (
     <div>
       <Banner />
@@ -28,7 +27,7 @@ export const Home = () => {
           <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
           <div className="border-t-2 pt-4">
             {data?.slice(0, 3).map((item) => (
-              <div className="flex items-center gap-3">
+              <div key={item.id} className="flex items-center gap-3">
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
                 </div>
@@ -48,7 +47,7 @@ export const Home = () => {
           </p>
           <div className="border-t-2 pt-4">
             {data?.slice(0, 3).map((item) => (
-              <div className="flex items-center gap-3">
+              <div key={item.id} className="flex items-center gap-3">
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
                 </div>
@@ -66,7 +65,7 @@ export const Home = () => {
           <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
           <div className="border-t-2 pt-4">
             {data?.slice(0, 3).map((item) => (
-              <div className="flex items-center gap-3">
+              <div key={item.id} className="flex items-center gap-3">
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
                 </div>
@@ -95,7 +94,7 @@ export const Home = () => {
           Ноутбуки, планшеты и компьютеры
         </p>
         <ProductBanner>
-          {data2?.map((item) => (
+          {data?.map((item) => (
             <ProductCard key={item.id} {...item} />
           ))}
         </ProductBanner>

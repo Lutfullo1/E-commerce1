@@ -77,8 +77,8 @@ export const CategoryBanner = () => {
           <div className="flex items-center gap-5">
             {data?.map((item, i) => (
               <Link key={i} to={`/category/${item.name}`}>
-                <div className="h-[150px] flex items-center gap-[10px] bg-gray-200 p-3">
-                  <div className="w-[110px]">
+                <div className="w-[220px] h-[150px] flex items-center gap-[10px] bg-gray-200 p-3">
+                  <div className="w-[100px]">
                     <img src={item.img} alt="img" />
                   </div>
                   <p>{item.text}</p>

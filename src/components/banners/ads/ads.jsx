@@ -9,7 +9,7 @@ export const Ads = () => {
         <p className="text-[24px] font-[600] mb-[20px]">Акции</p>
         <div className="flex items-center justify-between p-[30px]">
           {data?.map((item) => (
-            <div className="w-[430px] ">
+            <div key={item.id} className="w-[430px] ">
               <img className="h-[250px]" src={item.img} alt="img" />
             </div>
           ))}
