@@ -3,10 +3,10 @@ import React from "react";
 export const ProductCard = ({ img, title, rame, color, price, id }) => {
   return (
     <div className="mr-4">
-      <div className="rounded-lg shadow-lg overflow-hidden mb-4 hover:shadow-xl transition duration-300">
+      <div className="rounded-lg overflow-hidden mb-4 shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-lg">
         <img className="w-full" src={img} alt="img" />
         <div className="p-4">
-          <h2 className="text-xl font-semibold mb-2">{title}</h2>
+          <h2 className="text-xl font-semibold mb-2">{title.slice(0, 20)}</h2>
           <div className="flex items-center justify-between mb-2">
             <p className="text-gray-600">{rame}</p>
             <p className="text-gray-600">{color}</p>

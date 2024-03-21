@@ -62,17 +62,24 @@ export const Header = () => {
         {isLoadingSearchData ? (
           <Skeleton height={100} count={6} />
         ) : (
-          <div className="grid grid-cols-4 gap-2">
+          <div className="w-[700px] grid grid-cols-5 gap-2 mx-[auto]">
             {searchedData?.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-col items-center mt-8 p-3 rounded-lg shadow-lg bg-white hover:shadow-xl transition duration-300"
+                className="flex flex-col items-center mt-4 p-2 rounded-lg shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-lg"
+                style={{ maxWidth: "170px" }}
               >
-                <div className="w-[150px]">
-                  <img src={item.img} alt="" />
+                <div className="w-full h-32 overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={item.img}
+                    alt=""
+                  />
                 </div>
-                <p className="font-[400]">{item.title}</p>
-                <p>{item.price}</p>
+                <p className="text-center font-semibold text-sm mt-2">
+                  {item.title.slice(0, 20)}
+                </p>
+                <p className="text-sm">{item.price}</p>
               </div>
             ))}
           </div>
