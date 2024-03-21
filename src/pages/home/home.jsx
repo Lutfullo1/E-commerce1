@@ -55,7 +55,7 @@ export const Home = () => {
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
                 </div>
-                <div>
+                <div className="w-[250px]">
                   <h2>{item.title}</h2>
                   <strong>{item.price}</strong>
                   <p>{item.rame}</p>

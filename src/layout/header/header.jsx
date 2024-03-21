@@ -40,7 +40,7 @@ export const Header = () => {
                 <div className="w-[1200px] grid grid-cols-3 gap-5 p-3">
                   {data?.map((item, i) => (
                     <Link key={i} to={`/category/${item.name}`}>
-                      <div className="flex items-center gap-[10px] bg-gray-200 p-3">
+                      <div className="flex items-center gap-[10px] bg-gray-200 p-3 rounded-lg">
                         <img className="w-[150px]" src={item.img} alt="img" />
                         <p>{item.text}</p>
                       </div>
@@ -62,11 +62,17 @@ export const Header = () => {
         {isLoadingSearchData ? (
           <Skeleton height={100} count={6} />
         ) : (
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-2">
             {searchedData?.map((item) => (
-              <div key={item.id} className="mt-8">
-                <img src={item.img} alt="" />
-                <p>{item.title}</p>
+              <div
+                key={item.id}
+                className="flex flex-col items-center mt-8 p-3 rounded-lg shadow-lg bg-white hover:shadow-xl transition duration-300"
+              >
+                <div className="w-[150px]">
+                  <img src={item.img} alt="" />
+                </div>
+                <p className="font-[400]">{item.title}</p>
+                <p>{item.price}</p>
               </div>
             ))}
           </div>
