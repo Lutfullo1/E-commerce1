@@ -1,8 +1,4 @@
 import React from "react";
-import { useGetSearch } from "./service/useGetSearch";
-import useDebounce from "../../../../hooks/useDebounse";
-import { ProductCard } from "../../../../components/card/product-card/product-card";
-import Skeleton from "react-loading-skeleton";
 
 export const Search = ({ input, setInput }) => {
   return (

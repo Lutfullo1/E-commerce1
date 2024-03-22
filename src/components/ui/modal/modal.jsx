@@ -8,7 +8,7 @@ export const Modal = ({ isOpen, close, children }) => {
     close();
   }, [location.pathname]);
   return (
-    <Dialog open={isOpen} onClose={close} className="relative z-50">
+    <Dialog open={isOpen} onClose={close} className="relative z-30">
       <div className="fixed inset-0 flex w-screen items-center justify-center p-4 bg-[#94919124]">
         <Dialog.Panel className="rounded bg-white p-2">{children}</Dialog.Panel>
       </div>
