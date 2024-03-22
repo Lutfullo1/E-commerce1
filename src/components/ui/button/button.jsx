@@ -7,9 +7,10 @@ export const Button = ({ variant, children, onClick, type, icon: Icon }) => {
       onClick={onClick}
       type={type}
       className={clsx(
-        "px-[10px] py-[12px] flex items-center gap-[5px] text-[20px] font-[400] cursor-pointer text-center border-2",
+        "px-[10px] py-[10px] flex items-center gap-[5px] text-[20px] font-[400] cursor-pointer text-center border-2",
         {
-          "bg-blue-400 hover:bg-white duration-500": variant === "blue",
+          "w-[150px] bg-blue-400 hover:bg-white duration-500":
+            variant === "blue",
         }
       )}
     >

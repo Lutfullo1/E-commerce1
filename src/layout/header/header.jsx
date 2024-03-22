@@ -32,7 +32,7 @@ export const Header = () => {
       </div>
       <div className="hidden lg:block">
         <div className="flex justify-between items-center py-[17px]">
-          <div className="flex">
+          <div className="flex items-center gap-7">
             <Modal close={close} isOpen={isOpen}>
               {isLoading ? (
                 <Skeleton count={6} height={50} />
@@ -49,7 +49,7 @@ export const Header = () => {
                 </div>
               )}
             </Modal>
-            <a className="mr-[50px]" href="#">
+            <a href="#">
               <img src={logo} alt="logo" />
             </a>
             <Button onClick={open} variant="blue" icon={<MenuIcon />}>
