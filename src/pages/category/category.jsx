@@ -43,8 +43,7 @@ export const Category = () => {
   const { dataAttribute } = useSelector((state) => state.filter);
   const { slug } = useParams();
   const { data, isLoading } = useGetSingleCategory(slug, dataAttribute);
-  const { data: attributeData, isLoading: attributeISLoading } =
-    useGetCategoryAttribute();
+  const { data: attributeData } = useGetCategoryAttribute();
   const result = attributeData?.find((item) => item.slug == slug);
   return (
     <div className="container">

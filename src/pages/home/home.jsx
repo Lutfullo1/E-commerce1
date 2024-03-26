@@ -6,6 +6,7 @@ import { ProductBanner } from "../../components/ui/sliders/product-banner/produc
 import { ProductCard } from "../../components/card/product-card/product-card";
 import { Ads } from "../../components/banners/ads/ads";
 import { useGetLaptop } from "./service/query/useGetLaptop";
+import { Brands } from "../../components/banners/brands/brands";
 
 export const Home = () => {
   const { data: phones, isLoading: isLoadingPhones } =
@@ -115,6 +116,7 @@ export const Home = () => {
           ))}
         </ProductBanner>
       </div>
+      <Brands />
     </div>
   );
 };
