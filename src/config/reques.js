@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const request = axios.create({
-  baseURL: "https://server-ruddy-pi.vercel.app",
+  baseURL: "https://e-commerce1-server.vercel.app",
 });

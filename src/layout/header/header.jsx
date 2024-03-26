@@ -66,7 +66,7 @@ export const Header = () => {
             {searchedData?.map((item) => (
               <div
                 key={item.id}
-                className="m-2  flex-col items-center bg-white mt-4 p-2 rounded-lg shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-lg"
+                className="text-center m-2  flex-col items-center bg-white mt-4 p-2 rounded-lg shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-lg"
                 style={{ maxWidth: "170px" }}
               >
                 <div className="w-full h-32 overflow-hidden">

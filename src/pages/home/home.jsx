@@ -10,7 +10,7 @@ import { useGetLaptop } from "./service/query/useGetLaptop";
 export const Home = () => {
   const { data: phones, isLoading: isLoadingPhones } =
     useGetNewProducts("phones");
-  const { data: laptop, isLoading: isLoadingLaptop } = useGetLaptop("notebook");
+  const { data: laptop, isLoading: isLoading2 } = useGetLaptop("notebook");
 
   return (
     <div>
@@ -20,7 +20,7 @@ export const Home = () => {
         <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
         <ProductBanner>
           {phones?.map((item) => (
-            <ProductCard key={item.id} {...item} />
+            <ProductCard slug={"phones"} key={item.id} {...item} />
           ))}
         </ProductBanner>
       </div>
@@ -31,7 +31,11 @@ export const Home = () => {
           <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
           <div className="border-t-2 pt-4">
             {phones?.slice(0, 3).map((item) => (
-              <div key={item.id} className="flex items-center gap-3">
+              <div
+                slug={"phones"}
+                key={item.id}
+                className="flex items-center gap-3"
+              >
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
                 </div>
@@ -51,7 +55,11 @@ export const Home = () => {
           </p>
           <div className="border-t-2 pt-4">
             {laptop?.slice(0, 3).map((item) => (
-              <div key={item.id} className="flex items-center gap-3">
+              <div
+                slug={"notenook"}
+                key={item.id}
+                className="flex items-center gap-3"
+              >
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
                 </div>
@@ -69,7 +77,11 @@ export const Home = () => {
           <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
           <div className="border-t-2 pt-4">
             {phones?.slice(0, 3).map((item) => (
-              <div key={item.id} className="flex items-center gap-3">
+              <div
+                slug={"phones"}
+                key={item.id}
+                className="flex items-center gap-3"
+              >
                 <div>
                   <img className="w-[150px]" src={item.img} alt="" />
                 </div>
@@ -89,7 +101,7 @@ export const Home = () => {
         <p className="text-[24px] font-[600] mb-4">Смартфоны и планшеты</p>
         <ProductBanner>
           {phones?.map((item) => (
-            <ProductCard key={item.id} {...item} />
+            <ProductCard slug={"phones"} key={item.id} {...item} />
           ))}
         </ProductBanner>
       </div>
@@ -99,7 +111,7 @@ export const Home = () => {
         </p>
         <ProductBanner>
           {laptop?.map((item) => (
-            <ProductCard key={item.id} {...item} />
+            <ProductCard slug={"notebook"} key={item.id} {...item} />
           ))}
         </ProductBanner>
       </div>
